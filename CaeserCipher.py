@@ -26,4 +26,4 @@ while redo == "yes":
         caeser(msg,shifter,direction)
     else:
         print("Wrong input")
-    redo = input("Type 'yes' if you want to go again. Otherwise type 'no'.\n"
+    redo = input("Type 'yes' if you want to go again. Otherwise type 'no'.\n")
