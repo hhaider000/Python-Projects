@@ -1,5 +1,5 @@
 - 👋 Hi, I’m Hamad
-- 👀 I’m interested in programming and data science
+- 👀 I’m a chemical engineer who is interested in programming and data science
 - 🌱 I’m currently learning python
 - 💞️ I’m looking to collaborate on learning opportunities
 - 📫 How to reach me 
