@@ -1,0 +1,86 @@
+import random
+from replit import clear
+
+logo = """
+.------.            _     _            _    _            _    
+|A_  _ |.          | |   | |          | |  (_)          | |   
+|( \/ ).-----.     | |__ | | __ _  ___| | ___  __ _  ___| | __
+| \  /|K /\  |     | '_ \| |/ _` |/ __| |/ / |/ _` |/ __| |/ /
+|  \/ | /  \ |     | |_) | | (_| | (__|   <| | (_| | (__|   < 
+`-----| \  / |     |_.__/|_|\__,_|\___|_|\_\ |\__,_|\___|_|\_\\
+      |  \/ K|                            _/ |                
+      `------'                           |__/           
+"""
+
+def add(n1,n2):
+  return n1 + n2
+  
+def hit_me():
+  return random.randint(1,13)
+
+def black_jack():
+  start = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
+  if start == 'n':
+    exit
+  elif start == 'y':
+    clear()
+    print(logo)
+    pass
+  else:
+    print("Invalid Response.")
+
+  num1 = hit_me()
+  num2 = hit_me()
+  player_score = add(num1,num2)
+  player_cards = [num1, num2]
+  pc1 = hit_me()
+  pc2 = hit_me()
+  pc_cards = [pc1, pc2]
+  pc_score = add(pc1,pc2)
+  
+  print(f"Your cards: {player_cards}, current score: {player_score}")
+  print(f"Computer's first card: {pc1}")
+  
+  play = True
+  while play is True:
+    next = input("Type 'y' to get another card, type 'n' to pass: ")
+    if next == 'y':
+      num3 = hit_me()
+      player_cards.append(num3)
+      player_score = add(player_score,num3)
+      if player_score > 21:
+        print("You went over. You lose :(")
+        break
+      print(f"Your cards: {player_cards}, current score: {player_score}")
+      print(f"Computer's first card: {pc1}")
+    elif next == 'n':
+      play = False
+  pc_reign = True
+  while pc_reign is True:
+    pc_meter = random.randint(13,16)
+    if pc_score < pc_meter:
+      pc3 = hit_me()
+      pc_cards.append(pc3)
+      pc_score = add(pc_score,pc3)
+    elif pc_score >14:
+      pc_reign = False
+  
+  
+  print(f"Your final hand: {player_cards}, final score: {player_score}")
+  print(f"Computer's final hand: {pc_cards}, final score: {pc_score}")
+  
+  if player_score == pc_score:
+    print("It's a draw!")
+  elif pc_score == 21:
+    print("You lose. Opponent has Blackjack")
+  elif player_score == 21:
+    print("You have Blackjack. You win!:D")
+  elif pc_score > 21:
+    print("Opponent went over. You win :D")
+  elif player_score > 21:
+    print("You went over. You lose :(")
+  elif player_score > pc_score:
+    print("You win :D")
+  elif player_score < pc_score:
+    print("You lose :(")
+black_jack()
