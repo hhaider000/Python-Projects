@@ -1,0 +1,55 @@
+from art import logo,vs
+from game_data import data
+from replit import clear
+import random
+
+def higher_lower():
+  q1 = random.randint(1,len(data)-1)
+  q2 = random.randint(1,len(data)-1)
+  if q1 == q2:
+    q2 = random.randint(1,len(data)-1)
+  score = 0
+  print(logo)
+  print(f"Compare A: {data[q1]['name']}, {data[q1]['description']}, {data[q1]['country']}")
+  print(vs)
+  print(f"Compare B: {data[q2]['name']}, {data[q2]['description']}, {data[q2]['country']}") 
+  user = input("Who has more followers? Type 'A' or 'B': ").upper()
+  print(score)
+  num1 = data[q1]['follower_count']
+  num2 = data[q2]['follower_count']
+  if user == 'A' and num1>num2:
+      score += 1
+  elif user == 'B' and num2>num1:
+      score += 1
+      q1 = q2
+  else:
+    clear()
+    return print("Sorry, that's wrong. Final score: 1")
+  
+  
+  play = True
+  while play is True:
+    clear()
+    q2 = random.randint(1,len(data)-1)
+    # print(q2)
+    if q1 == q2:
+      q2 = random.randint(1,len(data)-1)
+    print(logo)
+    print(f"You're right! Current score: {score}.")
+    print(f"Compare A: {data[q1]['name']}, {data[q1]['description']}, {data[q1]['country']}")
+    print(vs)
+    print(f"Compare B: {data[q2]['name']}, {data[q2]['description']}, {data[q2]['country']}") 
+    user = input("Who has more followers? Type 'A' or 'B': ").upper()
+    num1 = data[q1]['follower_count']
+    num2 = data[q2]['follower_count']
+    if user == 'A' and num1>num2:
+        score += 1
+    elif user == 'B' and num2>num1:
+        score += 1
+        q1 = q2
+    else:
+      clear()
+      play = False
+      print(f"Sorry, that's wrong. Final score: {score}")
+higher_lower()
+
