@@ -1,0 +1,8 @@
+Upgrades:
+- MSD Calculations
+
+- Particle Propulsion vs. Random Walks
+	- Trajectory difference
+	- MSD difference
+
+- Matlab Plots
